@@ -3,8 +3,8 @@ from Conexion_SQLServer.logger_base import logger
 
 class SQLServer:
     def __init__(self, username=None, password=None):
-        self.server = 'xxxx;'
-        self.database = 'xxxxxxxx;'
+        self.server = 'XXXXXXXXX;'
+        self.database = 'XXXXXXXXXX;'
         if username != None:
             self.username = f'UID={username};'
         else:
@@ -42,6 +42,6 @@ class SQLServer:
 
 if __name__ == "__main__":
     with SQLServer() as cursor:
-        cursor.execute('Select * from [CaldenOil.Net].[dbo].[Gastos_Maxfa]')
+        cursor.execute('Select * from [BaseDatos].[dbo].[Tabla]')
         for i in cursor.fetchall():
             print(i)

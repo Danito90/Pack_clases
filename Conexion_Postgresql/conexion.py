@@ -8,11 +8,11 @@ class Conexion:
     Con el pool de conexiones, creamos objetos para cada conexion, en este caso el maximo es 5 objetos.
     A medida que cada objeto conexion se desocupa, se libera un lugar.
     '''
-    _DATABASE = 'xxxx'
-    _USERNAME = 'xxx'
-    _PASSWORD = 'XXXX'
-    _DB_PORT = 'XXXXX'
-    _HOST = 'XXX'
+    _DATABASE = 'XXXXXXXXXXx'
+    _USERNAME = 'XXXX'
+    _PASSWORD = 'XXX'
+    _DB_PORT = 'XX'
+    _HOST = 'XXXXX'
     _MIN_CON = 1
     _MAX_CON = 5
     _pool = None
