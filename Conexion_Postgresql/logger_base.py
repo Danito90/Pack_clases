@@ -9,7 +9,7 @@ logger.basicConfig(level=logger.DEBUG,
                    format='%(asctime)s: %(levelname)s %(message)s',
                    #    format='%(asctime)s: %(levelname)s [%(filename)s: linea- %(lineno)s] %(message)s',
                    # datefmt='%I:%M:%S %p',
-                   handlers=[logging.FileHandler('C:\\archivo.log'),
+                   handlers=[logging.FileHandler('C:\\DTUpdateFusion\\Log\\maxfa_fusion.log'),
                              logging.StreamHandler()
                              ])
 

@@ -8,14 +8,15 @@ class Conexion:
     Con el pool de conexiones, creamos objetos para cada conexion, en este caso el maximo es 5 objetos.
     A medida que cada objeto conexion se desocupa, se libera un lugar.
     '''
-    _DATABASE = 'XXXXXXXXXXx'
-    _USERNAME = 'XXXX'
-    _PASSWORD = 'XXX'
-    _DB_PORT = 'XX'
-    _HOST = 'XXXXX'
+    _DATABASE = 'XXXXXXXXXXX'
+    _USERNAME = 'XXXXXXXXXXXXXXXXX'
+    _PASSWORD = 'XXXXXXXXXX'
+    _DB_PORT = '16421'
+    _HOST = 'XXXXXXXXXXXXXXXXXXX'
     _MIN_CON = 1
     _MAX_CON = 5
     _pool = None
+    _usadas = 0
 
     @classmethod
     def obtenerPool(cls):
@@ -43,10 +44,16 @@ class Conexion:
         return conexion
 
     @classmethod
-    def liberarConexion(cls, conexion):
-        cls.obtenerPool().putconn(conexion)
-        logger.debug(f'Conexion liberada con exito')
-        #logger.debug('X'.center(100,'X'))
+    def obtenerConexion(cls):
+        conexion = cls.obtenerPool().getconn()
+        if cls._pool != None:
+            cls._usadas += 1
+        else:
+            usadas = 0
+        libres = cls._pool.maxconn - cls._usadas
+
+        logger.debug(f'Conexion obtenida del pool con exito en Postgresql: Libres {libres}')
+        return conexion
 
     @classmethod
     def cerrarConexiones(cls):
